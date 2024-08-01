@@ -13,9 +13,10 @@ To access the project content:
     3. Install dependencies using npm install
    ```
     4. Start the server using npm run start
-```
+
 
 ## Usage
+[Click here to see the deployed App](https://text-editor-du0l.onrender.com/)
 - Creating Notes: Start typing in the editor area.
 - Saving Notes: Click outside the editor area or lose focus to save the content to IndexedDB.
 - Offline Use: The application works offline. Any changes made while offline will be saved locally and synced when back online.
