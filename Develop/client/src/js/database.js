@@ -12,33 +12,32 @@ const initdb = async () =>
     },
   });
 
-// TODO: Add logic to a method that accepts some content and adds it to the database
+// Add logic to a method that accepts some content and adds it to the database
 export const putDb = async (content) => {
   console.log('PUT to the database');
 
-// Create a connection to the database database and version we want to use.
-const db = await openDB('jate', 1);
+  // Create a connection to the database and specify the version we want to use.
+  const db = await openDB('jate', 1);
 
-// Create a new transaction and specify the database and data privileges.
-const tx = db.transaction('jate', 'readwrite');
+  // Create a new transaction and specify the database and data privileges.
+  const tx = db.transaction('jate', 'readwrite');
 
-// Open up the desired object store.
-const store = tx.objectStore('jate');
+  // Open up the desired object store.
+  const store = tx.objectStore('jate');
 
-// Use the .add() method on the store and pass in the content.
-const request = store.add({ content });
+  // Use the .put() method on the store and pass in the content.
+  const request = store.put({ content });
 
-// Get confirmation of the request.
-const result = await request;
+  // Get confirmation of the request.
+  const result = await request;
   console.log('🚀 - data saved to the database', result);
 };
 
-
-// TODO: Add logic for a method that gets all the content from the database
+// Add logic for a method that gets all the content from the database
 export const getDb = async () => {
   console.log('GET from the database');
 
-  // Create a connection to the database database and version we want to use.
+  // Create a connection to the database and specify the version we want to use.
   const db = await openDB('jate', 1);
 
   // Create a new transaction and specify the database and data privileges.
